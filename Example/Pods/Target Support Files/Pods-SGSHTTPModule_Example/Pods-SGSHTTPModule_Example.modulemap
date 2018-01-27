@@ -1,6 +1,0 @@
-framework module Pods_SGSHTTPModule_Example {
-  umbrella header "Pods-SGSHTTPModule_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}

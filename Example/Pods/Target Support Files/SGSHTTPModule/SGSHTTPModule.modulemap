@@ -1,6 +1,0 @@
-framework module SGSHTTPModule {
-  umbrella header "SGSHTTPModule-umbrella.h"
-
-  export *
-  module * { export * }
-}
