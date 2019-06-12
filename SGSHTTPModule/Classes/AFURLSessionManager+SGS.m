@@ -554,7 +554,7 @@ typedef void(^ProgressBlock)(NSProgress *);
     if (headers != nil) {
         [headers enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
             if ([key isKindOfClass:[NSString class]] && [obj isKindOfClass:[NSString class]]) {
-                [requestSerializer setValue:key forHTTPHeaderField:obj];
+                [requestSerializer setValue:obj forHTTPHeaderField:key];
             }
         }];
     }

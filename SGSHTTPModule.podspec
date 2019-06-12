@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name      = 'SGSHTTPModule'
-  s.version   = '0.5.0'
+  s.version   = '0.5.2'
   s.summary   = '基于 AFNetworking 封装的 HTTP 请求组件'
 
   s.homepage  = 'https://github.com/CharlsPrince/SGSHTTPModule'
