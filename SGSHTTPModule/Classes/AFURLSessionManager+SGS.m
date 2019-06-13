@@ -104,13 +104,14 @@ typedef void(^ProgressBlock)(NSProgress *);
 - (void)clearAllResumeDataWithCompletionHandler:(void (^)(BOOL))handler {
     [_resumeDataCache removeAllObjects];
     
+    
     dispatch_async(_ioQueue, ^{
         NSFileManager *fileManager = [NSFileManager defaultManager];
         
         // 移除目录后重新创建
-        BOOL result = [fileManager removeItemAtPath:_resumeDataDiskPath error:nil];
+        BOOL result = [fileManager removeItemAtPath:self->_resumeDataDiskPath error:nil];
         
-        [fileManager createDirectoryAtPath:_resumeDataDiskPath
+        [fileManager createDirectoryAtPath:self->_resumeDataDiskPath
                withIntermediateDirectories:YES
                                 attributes:nil
                                      error:nil];
@@ -133,9 +134,9 @@ typedef void(^ProgressBlock)(NSProgress *);
     
     dispatch_async(_ioQueue, ^{
         
-        if (![fileManager fileExistsAtPath:_resumeDataDiskPath]) {
+        if (![fileManager fileExistsAtPath:self->_resumeDataDiskPath]) {
             
-            if (![fileManager createDirectoryAtPath:_resumeDataDiskPath withIntermediateDirectories:YES attributes:nil error:NULL]) return ;
+            if (![fileManager createDirectoryAtPath:self->_resumeDataDiskPath withIntermediateDirectories:YES attributes:nil error:NULL]) return ;
         }
         
         NSString *cachePath = [self p_resumeDataPathWithKey:key];
@@ -580,7 +581,7 @@ typedef void(^ProgressBlock)(NSProgress *);
     } else if (request.cachePolicy == NSURLRequestReloadIgnoringLocalCacheData) {
         // 如果缓存策略忽略本地缓存，即每次都要向服务端进行校验
         // 并且 If-Modified-Since 或 If-None-Match 为空时，自动添加这些字段值到请求头中
-        NSCachedURLResponse *cache = [[NSURLCache sharedURLCache] cachedResponseForRequest:request];
+        NSCachedURLResponse *cache = [[NSURLCache sharedURLCache] cachedResponseForRequest:(NSURLRequest *)request];
         NSDictionary *cachedHeaders = [(NSHTTPURLResponse *)cache.response allHeaderFields];
         if ([mutRequest valueForHTTPHeaderField:@"If-Modified-Since"] == nil) {
             [mutRequest setValue:cachedHeaders[@"Last-Modified"] forHTTPHeaderField:@"If-Modified-Since"];

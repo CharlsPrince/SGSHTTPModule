@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name      = 'SGSHTTPModule'
-  s.version   = '0.5.2'
+  s.version   = '0.5.3'
   s.summary   = '基于 AFNetworking 封装的 HTTP 请求组件'
 
   s.homepage  = 'https://github.com/CharlsPrince/SGSHTTPModule'
@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
   s.source_files = 'SGSHTTPModule/Classes/**/*'
   s.public_header_files = 'SGSHTTPModule/Classes/**/*.{h}'
   
-  s.dependency 'AFNetworking', '~> 3.1.0'
+  s.dependency 'AFNetworking', '~> 3.2.0'
 end
