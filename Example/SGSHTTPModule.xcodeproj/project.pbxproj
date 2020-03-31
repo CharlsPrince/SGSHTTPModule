@@ -63,7 +63,7 @@
 		03B57FEA904A216014B01DAC /* Pods-SGSHTTPModule_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SGSHTTPModule_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SGSHTTPModule_Tests/Pods-SGSHTTPModule_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		29EE1216F0C0AE45EAACB2E1 /* Pods-SGSHTTPModule_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SGSHTTPModule_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SGSHTTPModule_Example/Pods-SGSHTTPModule_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4B02449E5EFD57862233D203 /* Pods-SGSHTTPModule_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SGSHTTPModule_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SGSHTTPModule_Example/Pods-SGSHTTPModule_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		556A69AA5BE617F0E39842C5 /* SGSHTTPModule.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SGSHTTPModule.podspec; path = ../SGSHTTPModule.podspec; sourceTree = "<group>"; };
+		556A69AA5BE617F0E39842C5 /* SGSHTTPModule.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SGSHTTPModule.podspec; path = ../SGSHTTPModule.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6003F58A195388D20070C39A /* SGSHTTPModule_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGSHTTPModule_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -415,7 +415,6 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				EC4A5DB7D02F5E0B0D4A9D34 /* [CP] Embed Pods Frameworks */,
-				1EFDAE22DEB1EF8D4E35C34A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -435,7 +434,6 @@
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
 				91E234714E17891069787EB0 /* [CP] Embed Pods Frameworks */,
-				19DFE2989205847F57E62FA6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -468,6 +466,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -511,43 +510,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SGSHTTPModule_Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		19DFE2989205847F57E62FA6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SGSHTTPModule_Tests/Pods-SGSHTTPModule_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1EFDAE22DEB1EF8D4E35C34A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SGSHTTPModule_Example/Pods-SGSHTTPModule_Example-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3096A57B853DB2ED94856C4C /* [CP] Check Pods Manifest.lock */ = {
@@ -556,13 +528,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SGSHTTPModule_Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		91E234714E17891069787EB0 /* [CP] Embed Pods Frameworks */ = {
@@ -571,13 +546,22 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SGSHTTPModule_Tests/Pods-SGSHTTPModule_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Expecta/Expecta.framework",
+				"${BUILT_PRODUCTS_DIR}/Expecta+Snapshots/Expecta_Snapshots.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSnapshotTestCase/FBSnapshotTestCase.framework",
+				"${BUILT_PRODUCTS_DIR}/Specta/Specta.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Expecta.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Expecta_Snapshots.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Specta.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SGSHTTPModule_Tests/Pods-SGSHTTPModule_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SGSHTTPModule_Tests/Pods-SGSHTTPModule_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EC4A5DB7D02F5E0B0D4A9D34 /* [CP] Embed Pods Frameworks */ = {
@@ -586,13 +570,18 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SGSHTTPModule_Example/Pods-SGSHTTPModule_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/SGSHTTPModule/SGSHTTPModule.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SGSHTTPModule.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SGSHTTPModule_Example/Pods-SGSHTTPModule_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SGSHTTPModule_Example/Pods-SGSHTTPModule_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -776,6 +765,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SGSHTTPModule/SGSHTTPModule-Prefix.pch";
 				INFOPLIST_FILE = "SGSHTTPModule/SGSHTTPModule-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -791,6 +781,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SGSHTTPModule/SGSHTTPModule-Prefix.pch";
 				INFOPLIST_FILE = "SGSHTTPModule/SGSHTTPModule-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
